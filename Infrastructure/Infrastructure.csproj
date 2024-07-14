@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Identity\" />
     <Folder Include="Migrations\" />
     <Folder Include="Mappings\" />
     <Folder Include="Repositories\" />
@@ -28,6 +29,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Application\Application.csproj" />
     <ProjectReference Include="..\Domain\Domain.csproj" />
+    <ProjectReference Include="..\SharedItems\SharedItems.csproj" />
   </ItemGroup>
 
 </Project>

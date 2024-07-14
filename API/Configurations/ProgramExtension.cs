@@ -1,7 +1,7 @@
 ﻿using Infrastructure.Context;
-using Infrastructure.Identity.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SharedItems.Entities;
 
 namespace API.Configurations
 {

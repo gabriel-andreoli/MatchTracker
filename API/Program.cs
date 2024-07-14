@@ -1,5 +1,5 @@
-using Infrastructure.Identity.Entities;
 using API.Configurations;
+using SharedItems.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 

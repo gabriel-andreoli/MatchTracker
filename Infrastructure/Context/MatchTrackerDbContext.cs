@@ -1,7 +1,8 @@
-﻿using Infrastructure.Identity.Entities;
+﻿using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using SharedItems.Entities;
 
 namespace Infrastructure.Context
 {
@@ -11,6 +12,10 @@ namespace Infrastructure.Context
             : base(options)
         {
         }
+
+        public DbSet<User> Users { get; set; }
+        public DbSet<Event> Events { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
