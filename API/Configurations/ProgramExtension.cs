@@ -12,7 +12,8 @@ namespace API.Configurations
             builder.Services.AddAuthorization();
 
             builder.Services.AddAuthentication()
-                            .AddBearerToken(IdentityConstants.BearerScheme);
+                            .AddBearerToken(IdentityConstants.BearerScheme, 
+                             options => options.BearerTokenExpiration = TimeSpan.FromDays(7));
 
             builder.Services.AddIdentityCore<User>()
                             .AddEntityFrameworkStores<MatchTrackerDbContext>()
