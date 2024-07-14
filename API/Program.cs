@@ -1,33 +1,21 @@
-using Infrastructure.Context;
 using Infrastructure.Identity.Entities;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using API.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.ConfigureIdentity();
 
-//TODO Gabriel 20240713 - ExtensionMethods for this configurations
-builder.Services.AddAuthorization();
-builder.Services.AddAuthentication()
-    .AddBearerToken(IdentityConstants.BearerScheme);
+builder.ConfigureDatabase();
 
-builder.Services.AddIdentityCore<User>()
-    .AddEntityFrameworkStores<MatchTrackerDbContext>()
-    .AddApiEndpoints();
-
-builder.Services.AddDbContext<MatchTrackerDbContext>(options => 
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DbConnection")));
+builder.AddDependencyInjection();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
